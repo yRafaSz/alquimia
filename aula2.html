@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alquimia Gin's</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-1: #0c0a0f;
+            --bg-2: #151018;
+            --header-bg: rgba(14, 10, 18, 0.92);
+            --gold-1: #d4af37;
+            --gold-2: #f1d58a;
+            --gold-3: #8e6a24;
+            --text-1: #f6ead0;
+            --text-2: #d8c7e8;
+            --muted: #b8aa95;
+            --purple-1: #5a3a75;
+            --purple-2: #2a1f31;
+            --card-1: #2f2414;
+            --card-2: #1f180e;
+            --footer-1: #120d15;
+            --footer-2: #0b090d;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at top, rgba(90, 58, 117, 0.20), transparent 28%),
+                linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 50%, var(--bg-1) 100%);
+            color: var(--text-1);
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* HEADER */
+        .site-header {
+            background: linear-gradient(180deg, rgba(16, 12, 19, 0.96) 0%, rgba(24, 16, 25, 0.92) 100%);
+            padding: 14px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+        }
+
+        .header-bar {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand-wrap {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+            flex: 1;
+        }
+
+        .brand-logo {
+            height: 52px;
+            width: auto;
+            object-fit: contain;
+            flex-shrink: 0;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.18));
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 0;
+            line-height: 1;
+        }
+
+        .brand-title {
+            font-family: "Cinzel", serif;
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--gold-2);
+            margin: 0;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .brand-subtitle {
+            font-family: "Great Vibes", cursive;
+            font-size: 1rem;
+            color: #d6b5ff;
+            margin-top: 4px;
+            white-space: nowrap;
+        }
+
+        .top-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 8px;
+            max-width: 52%;
+        }
+
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, var(--purple-2) 0%, #1d1524 100%);
+            color: #f3dfb0;
+            border: 1px solid rgba(212, 175, 55, 0.30);
+            border-radius: 999px;
+            padding: 7px 12px;
+            font-size: 0.78rem;
+            line-height: 1.2;
+            white-space: nowrap;
+            transition: 0.2s ease;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-btn:hover {
+            color: #fff6de;
+            background: linear-gradient(180deg, #3a2944 0%, #24192b 100%);
+            transform: translateY(-1px);
+        }
+
+        /* HERO / SECTION TITLES */
+        .hero-title {
+            font-family: "Cinzel", serif;
+            color: var(--gold-2);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .hero-subtitle {
+            color: var(--text-2);
+            margin-bottom: 0;
+        }
+
+        /* STORY */
+        .story-section {
+            padding-top: 24px;
+            padding-bottom: 10px;
+        }
+
+        .story-box {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, rgba(33, 24, 39, 0.5) 0%, rgba(22, 17, 28, 0.6) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.14);
+            border-radius: 22px;
+            padding: 28px 26px;
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+            backdrop-filter: blur(12px);
+        }
+
+        .story-box p {
+            color: #eadfc9;
+            line-height: 1.85;
+            margin-bottom: 16px;
+            font-size: 1.03rem;
+        }
+
+        .story-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* PRODUCT SECTION */
+        .products-section {
+            padding-top: 32px;
+        }
+
+        .gin-card {
+            background: linear-gradient(180deg, var(--card-1) 0%, var(--card-2) 100%);
+            color: var(--text-1);
+            border: 1px solid rgba(212, 175, 55, 0.38);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(255, 221, 135, 0.04) inset;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            height: 100%;
+        }
+
+        .gin-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 34px rgba(0, 0, 0, 0.34), 0 0 20px rgba(212, 175, 55, 0.10);
+        }
+
+        .gin-card img {
+            height: 320px;
+            object-fit: cover;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            clip-path: inset(1.5%);
+        }
+
+        .gin-card .card-body {
+            background: linear-gradient(180deg, var(--card-1) 0%, var(--card-2) 100%);
+            padding: 22px;
+        }
+
+        .card-title {
+            font-family: "Cinzel", serif;
+            color: #f7e5b5;
+            font-weight: 600;
+            margin-bottom: 18px;
+            font-size: 1.1rem;
+        }
+
+        .price-box {
+            background: linear-gradient(90deg, #4a3213 0%, #7a5a20 50%, #4a3213 100%);
+            color: #fff0c9;
+            border: 1px solid rgba(232, 197, 107, 0.40);
+            border-radius: 12px;
+            padding: 10px 14px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+        }
+
+        .buy-btn {
+            background: linear-gradient(90deg, #6d4b16 0%, #d4af37 50%, #7b5719 100%);
+            color: #22180b;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            padding: 12px 18px;
+            transition: 0.25s ease;
+        }
+
+        .buy-btn:hover {
+            opacity: 0.96;
+            color: #1b1208;
+            transform: translateY(-1px);
+        }
+
+        .special-section { margin-top: 34px; }
+
+        .special-label {
+            display: inline-block;
+            font-family: "Cinzel", serif;
+            color: #2a1800;
+            background: linear-gradient(90deg, #cfa64c, #f2dc9a, #cfa64c);
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.16);
+        }
+
+        .gin-card.special {
+            border: 1px solid rgba(255, 217, 120, 0.78);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.40), 0 0 28px rgba(212, 175, 55, 0.16);
+        }
+
+        /* ESTRUTURA GERAL DOS CARROSSEIS */
+        .reviews-section, .utensils-section {
+            margin-top: 70px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .utensils-section { margin-top: 60px; }
+
+        .reviews-container, .utensils-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .reviews-container::before, .reviews-container::after,
+        .utensils-container::before, .utensils-container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .reviews-container::before, .utensils-container::before {
+            left: 0;
+            background: linear-gradient(to right, var(--bg-1), transparent);
+        }
+
+        .reviews-container::after, .utensils-container::after {
+            right: 0;
+            background: linear-gradient(to left, var(--bg-1), transparent);
+        }
+
+        .reviews-track, .utensils-track {
+            display: inline-flex;
+            gap: 20px;
+            animation: scroll-items linear infinite;
+        }
+
+        .reviews-track { animation-duration: 40s; }
+        .utensils-track { animation-duration: 25s; }
+
+        .reviews-track:hover, .utensils-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll-items {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-100% / 2)); }
+        }
+
+        /* CARDS DE AVALIAÇÕES */
+        .review-card {
+            background: #0f0a14;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 16px;
+            padding: 24px;
+            min-width: 340px;
+            white-space: normal;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .review-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .review-name {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.15rem;
+            margin: 0;
+        }
+
+        .review-product {
+            color: #6c5a7a;
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        .review-stars {
+            color: #ffb800;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+
+        .review-text {
+            color: #8c8396;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* CARDS DE UTENSÍLIOS */
+        .utensil-card {
+            background: linear-gradient(180deg, rgba(25, 17, 30, 0.8) 0%, rgba(15, 10, 20, 0.9) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 20px;
+            padding: 30px 24px;
+            min-width: 320px;
+            white-space: normal;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .utensil-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        /* --- CORREÇÃO APLICADA AQUI PARA CORTAR A BORDA BRANCA DOS UTENSÍLIOS --- */
+        .utensil-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 16px;
+            object-fit: cover;
+            background: rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+            cursor: pointer; 
+            transition: transform 0.2s;
+            clip-path: inset(2% round 16px); /* Esse comando esconde a borda imperfeita */
+        }
+
+        .utensil-image:hover {
+            transform: scale(1.05);
+        }
+
+        .utensil-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .utensil-name {
+            color: #f3dfb0;
+            font-family: "Cinzel", serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin: 0 0 5px 0;
+        }
+
+        .utensil-type {
+            color: #a797b5;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .drag-hint {
+            text-align: center;
+            color: #6c5a7a;
+            font-size: 0.85rem;
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        /* MODAL DE IMAGEM */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85); 
+            backdrop-filter: blur(8px); 
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content-img {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2);
+            animation: zoomIn 0.3s ease-out;
+            clip-path: inset(1.5% round 16px); /* A borda branca também é cortada quando expande */
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: #f1d58a;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 10000;
+        }
+
+        .close-modal:hover {
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        /* FOOTER */
+        .site-footer {
+            margin-top: 50px;
+            background: linear-gradient(180deg, var(--footer-1) 0%, var(--footer-2) 100%);
+            padding: 42px 0 24px;
+        }
+
+        .footer-brand {
+            font-family: "Cinzel", serif;
+            color: #e3c26f;
+            font-size: 1.35rem;
+            font-weight: 700;
+        }
+
+        .footer-text {
+            color: #d6c8b0;
+            margin-bottom: 8px;
+        }
+
+        .footer-link {
+            color: #f0ddb0;
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            color: #ffffff;
+        }
+
+        .footer-copy {
+            margin-top: 18px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(212, 175, 55, 0.10);
+            color: #9d927f;
+            font-size: 0.95rem;
+        }
+
+        /* SCROLLBAR */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #111; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #222; }
+        * { scrollbar-width: thin; scrollbar-color: #111 transparent; }
+
+        /* RESPONSIVE */
+        @media (max-width: 991px) {
+            .site-header { padding: 10px 0; }
+            .header-bar { align-items: flex-start; }
+            .brand-wrap { max-width: 50%; }
+            .brand-logo { height: 42px; }
+            .brand-title { font-size: 1.08rem; }
+            .brand-subtitle { font-size: 0.82rem; }
+            .top-nav { max-width: 48%; gap: 6px; }
+            .nav-btn { padding: 6px 10px; font-size: 0.68rem; }
+            .gin-card img { height: 300px; }
+            .utensil-image { width: 140px; height: 140px; }
+        }
+
+        @media (max-width: 767px) {
+            .site-header { padding: 8px 0; }
+            .header-bar { align-items: flex-start; gap: 10px; }
+            .brand-wrap { max-width: 52%; gap: 8px; }
+            .brand-logo { height: 34px; }
+            .brand-title { font-size: 0.90rem; letter-spacing: 0.2px; }
+            .brand-subtitle { font-size: 0.62rem; margin-top: 2px; }
+            .top-nav { max-width: 45%; justify-content: flex-end; gap: 5px; }
+            .nav-btn { padding: 4px 8px; font-size: 0.60rem; }
+            .story-box { padding: 22px 18px; border-radius: 18px; }
+            .story-box p { font-size: 0.98rem; line-height: 1.75; }
+            .gin-card img { height: 270px; }
+            .card-title { font-size: 1rem; }
+            .review-card { min-width: 280px; padding: 20px; }
+            .utensil-card { min-width: 260px; padding: 24px 18px; }
+            .utensil-image { width: 120px; height: 120px; }
+            .close-modal { top: 15px; right: 20px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="header-bar">
+                <div class="brand-wrap">
+                    <img src="logo.png" alt="Logo da Alquimia" class="brand-logo">
+                    <div class="brand-text">
+                        <h1 class="brand-title">ALQUIMIA GIN'S</h1>
+                        <span class="brand-subtitle">A arte da alquimia em cada dose</span>
+                    </div>
+                </div>
+
+                <nav class="top-nav">
+                    <a href="#origem" class="nav-btn">Origem</a>
+                    <a href="#gins" class="nav-btn">Gins</a>
+                    <a href="#especial" class="nav-btn">Temporada</a>
+                    <a href="#utensilios" class="nav-btn">Utensílios</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-4">
+
+        <section id="origem" class="story-section">
+            <div class="text-center mb-4">
+                <h2 class="hero-title">Nossa História</h2>
+                <p class="hero-subtitle">A origem da Alquimia Gin</p>
+            </div>
+
+            <div class="story-box mx-auto">
+                <p>
+                    A Alquimia Gin nasceu como um sonho de um grupo universitário apaixonado por experiências únicas.
+                    Em momentos de descontração, surgiu a inquietação: o gin poderia ser mais do que apenas uma bebida para misturas.
+                </p>
+
+                <p>
+                    Faltava identidade, presença e significado. Foi então que surgiu o desejo de transformar o simples em algo memorável,
+                    trazendo a sensação de luxo e exclusividade para cada dose.
+                </p>
+
+                <p>
+                    Inspirados pelo whisky, imaginaram um gin que pudesse ser apreciado puro, valorizado em cada detalhe.
+                </p>
+
+                <p>
+                    Com influência de um químico, nasceu o conceito da alquimia: transformar ingredientes em algo extraordinário.
+                </p>
+
+                <p>
+                    Hoje, a Alquimia Gin representa a união entre ciência, arte e paixão.
+                </p>
+            </div>
+        </section>
+
+        <section id="gins" class="products-section">
+            <div class="text-center mb-5">
+                <h2 class="hero-title mb-3">Coleção Alquimia Gin</h2>
+                <p class="hero-subtitle mb-0">
+                    Sabores artesanais com identidade premium, elegância e personalidade em cada garrafa.
+                </p>
+            </div>
+
+            <div class="row g-4 mb-2">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card gin-card">
+                        <img src="laranja.png" class="card-img-top" alt="Gin de Laranja">
+                        <div class="card-body text-center d-flex flex-column">
+                            <h5 class="card-title">Gin de 🍊 Laranja (750ml)</h5>
+                            <div class="price-box">Valor: R$ 119,90</div>
+                            <a href="https://wa.me/31985785679" class="btn buy-btn w-100 mt-auto" target="_blank">🛒 Comprar agora</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card gin-card">
+                        <img src="limao.png" class="card-img-top" alt="Gin de Limão">
+                        <div class="card-body text-center d-flex flex-column">
+                            <h5 class="card-title">Gin de 🍋 Limão (750ml)</h5>
+                            <div class="price-box">Valor: R$ 129,90</div>
+                            <a href="https://wa.me/31985785679" class="btn buy-btn w-100 mt-auto" target="_blank">🛒 Comprar agora</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card gin-card">
+                        <img src="manga.png" class="card-img-top" alt="Gin de Manga">
+                        <div class="card-body text-center d-flex flex-column">
+                            <h5 class="card-title">Gin de 🥭 Manga (750ml)</h5>
+                            <div class="price-box">Valor: R$ 139,90</div>
+                            <a href="https://wa.me/31985785679" class="btn buy-btn w-100 mt-auto" target="_blank">🛒 Comprar agora</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 justify-content-center mt-1">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card gin-card">
+                        <img src="abacaxi.png" class="card-img-top" alt="Gin de Abacaxi">
+                        <div class="card-body text-center d-flex flex-column">
+                            <h5 class="card-title">Gin de 🍍 Abacaxi (750ml)</h5>
+                            <div class="price-box">Valor: R$ 149,90</div>
+                            <a href="https://wa.me/31985785679" class="btn buy-btn w-100 mt-auto" target="_blank">🛒 Comprar agora</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card gin-card">
+                        <img src="maracuja.png" class="card-img-top" alt="Gin de Maracujá">
+                        <div class="card-body text-center d-flex flex-column">
+                            <h5 class="card-title">Gin de 💛 Maracujá (750ml)</h5>
+                            <div class="price-box">Valor: R$ 159,90</div>
+                            <a href="https://wa.me/31985785679" class="btn buy-btn w-100 mt-auto" target="_blank">🛒 Comprar agora</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="especial" class="special-section text-center">
+            <span class="special-label">Edição Especial</span>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-md-8">
+                    <div class="card gin-card special">
+                        <img src="pitaya.jpeg" class="card-img-top" alt="Gin de Pitaya">
+                        <div class="card-body text-center d-flex flex-column">
+                            <h5 class="card-title">Gin de 🌴 Pitaya (750ml)</h5>
+                            <div class="price-box">Valor: R$ 189,90</div>
+                            <a href="https://wa.me/31985785679" class="btn buy-btn w-100 mt-auto" target="_blank">✨ Comprar edição especial</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <section id="utensilios" class="utensils-section">
+        <div class="text-center mb-4">
+            <h2 class="hero-title" style="font-size: 1.5rem;">Acessórios Exclusivos</h2>
+        </div>
+        <div class="utensils-container">
+            <div class="utensils-track">
+                
+                <div class="utensil-card">
+                    <img src="copo2.png" alt="Copo de Gin" class="utensil-image">
+                    <div class="utensil-info">
+                        <h4 class="utensil-name">Copo Alquimia</h4>
+                        <p class="utensil-type">Vidro premium lapidado</p>
+                    </div>
+                </div>
+
+                <div class="utensil-card">
+                    <img src="copo3.png" alt="Copo de Cobre" class="utensil-image">
+                    <div class="utensil-info">
+                        <h4 class="utensil-name">Copo Cobre</h4>
+                        <p class="utensil-type">Estilo rústico sofisticado</p>
+                    </div>
+                </div>
+
+                <div class="utensil-card">
+                    <img src="garrafa1.png" alt="Garrafa de Alquimia Clássica" class="utensil-image">
+                    <div class="utensil-info">
+                        <h4 class="utensil-name">Garrafa Clássica</h4>
+                        <p class="utensil-type">Edição de Colecionador</p>
+                    </div>
+                </div>
+
+                <div class="utensil-card">
+                    <img src="garrafa2.png" alt="Garrafa de Alquimia Premium" class="utensil-image">
+                    <div class="utensil-info">
+                        <h4 class="utensil-name">Garrafa Premium</h4>
+                        <p class="utensil-type">Design Minimalista</p>
+                    </div>
+                </div>
+
+                <div class="utensil-card">
+                    <img src="canudos.jpg" alt="Canudos de Metal" class="utensil-image">
+                    <div class="utensil-info">
+                        <h4 class="utensil-name">Kit Canudos</h4>
+                        <p class="utensil-type">Metal Sustentável</p>
+                    </div>
+                </div>
+
+                <div class="utensil-card">
+                    <img src="copo2.png" alt="Copo de Gin" class="utensil-image">
+                    <div class="utensil-info">
+                        <h4 class="utensil-name">Copo Alquimia</h4>
+                        <p class="utensil-type">Vidro premium lapidado</p>
+                    </div>
+                </div>
+
+                <div class="utensil-card">
+                    <img src="copo3.png" alt="Copo de Cobre" class="utensil-image">
+                    <div class="utensil-info">
+                        <h4 class="utensil-name">Copo Cobre</h4>
+                        <p class="utensil-type">Estilo rústico sofisticado</p>
+                    </div>
+                </div>
+
+                <div class="utensil-card">
+                    <img src="garrafa1.png" alt="Garrafa de Alquimia Clássica" class="utensil-image">
+                    <div class="utensil-info">
+                        <h4 class="utensil-name">Garrafa Clássica</h4>
+                        <p class="utensil-type">Edição de Colecionador</p>
+                    </div>
+                </div>
+
+                <div class="utensil-card">
+                    <img src="garrafa2.png" alt="Garrafa de Alquimia Premium" class="utensil-image">
+                    <div class="utensil-info">
+                        <h4 class="utensil-name">Garrafa Premium</h4>
+                        <p class="utensil-type">Design Minimalista</p>
+                    </div>
+                </div>
+
+                <div class="utensil-card">
+                    <img src="canudos.png" alt="Canudos de Metal" class="utensil-image">
+                    <div class="utensil-info">
+                        <h4 class="utensil-name">Kit Canudos</h4>
+                        <p class="utensil-type">Metal Sustentável</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="drag-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l-3 3 3 3M19 9l3 3-3 3M2 12h20"/></svg>
+            Arraste ou clique para expandir a imagem
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l3 3-3 3M5 9l-3 3 3 3M2 12h20"/></svg>
+        </div>
+    </section>
+
+    <section class="reviews-section">
+        <div class="reviews-container">
+            <div class="reviews-track">
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=1" alt="Avatar" class="review-avatar">
+                        <div class="review-info">
+                            <h4 class="review-name">Ana Silva</h4>
+                            <p class="review-product">Gin de Pitaya</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Surpreendente, o sabor é muito equilibrado e visual impecável.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Avatar" class="review-avatar">
+                        <div class="review-info">
+                            <h4 class="review-name">Pedro Santos</h4>
+                            <p class="review-product">Gin de Laranja</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Com certeza a melhor G&T que já fiz em casa.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=5" alt="Avatar" class="review-avatar">
+                        <div class="review-info">
+                            <h4 class="review-name">Maria Costa</h4>
+                            <p class="review-product">Gin de Manga</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Uma verdadeira arte em forma de bebida. Qualidade pura.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=15" alt="Avatar" class="review-avatar">
+                        <div class="review-info">
+                            <h4 class="review-name">João Almeida</h4>
+                            <p class="review-product">Gin de Limão</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Incrível a qualidade dos botânicos. Recomendo demais!</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=8" alt="Avatar" class="review-avatar">
+                        <div class="review-info">
+                            <h4 class="review-name">Lucas Pereira</h4>
+                            <p class="review-product">Gin de Abacaxi</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Perfeito para as noites de fim de semana com a galera.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=9" alt="Avatar" class="review-avatar">
+                        <div class="review-info">
+                            <h4 class="review-name">Beatriz Lima</h4>
+                            <p class="review-product">Gin de Maracujá</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Aroma único que toma conta do ambiente assim que abre.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Avatar" class="review-avatar">
+                        <div class="review-info">
+                            <h4 class="review-name">Ricardo Gomes</h4>
+                            <p class="review-product">Gin de Pitaya</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">A edição especial valeu cada centavo. Muito bom!</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=20" alt="Avatar" class="review-avatar">
+                        <div class="review-info">
+                            <h4 class="review-name">Camila Oliveira</h4>
+                            <p class="review-product">Gin de Laranja</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Virou a marca oficial das minhas festas. Sensacional.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=33" alt="Avatar" class="review-avatar">
+                        <div class="review-info">
+                            <h4 class="review-name">Daniel Faria</h4>
+                            <p class="review-product">Gin de Manga</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Design impecável da garrafa e o conteúdo melhor ainda.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=32" alt="Avatar" class="review-avatar">
+                        <div class="review-info">
+                            <h4 class="review-name">Sofia J. Lasa</h4>
+                            <p class="review-product">Gin de Limão</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Refrescante na medida certa. Atendimento ótimo também!</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=1" alt="Avatar" class="review-avatar">
+                        <div class="review-info">
+                            <h4 class="review-name">Ana Silva</h4>
+                            <p class="review-product">Gin de Pitaya</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Surpreendente, o sabor é muito equilibrado e visual impecável.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Avatar" class="review-avatar">
+                        <div class="review-info">
+                            <h4 class="review-name">Pedro Santos</h4>
+                            <p class="review-product">Gin de Laranja</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Com certeza a melhor G&T que já fiz em casa.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=5" alt="Avatar" class="review-avatar">
+                        <div class="review-info">
+                            <h4 class="review-name">Maria Costa</h4>
+                            <p class="review-product">Gin de Manga</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Uma verdadeira arte em forma de bebida. Qualidade pura.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=15" alt="Avatar" class="review-avatar">
+                        <div class="review-info">
+                            <h4 class="review-name">João Almeida</h4>
+                            <p class="review-product">Gin de Limão</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Incrível a qualidade dos botânicos. Recomendo demais!</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=8" alt="Avatar" class="review-avatar">
+                        <div class="review-info">
+                            <h4 class="review-name">Lucas Pereira</h4>
+                            <p class="review-product">Gin de Abacaxi</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Perfeito para as noites de fim de semana com a galera.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=9" alt="Avatar" class="review-avatar">
+                        <div class="review-info">
+                            <h4 class="review-name">Beatriz Lima</h4>
+                            <p class="review-product">Gin de Maracujá</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Aroma único que toma conta do ambiente assim que abre.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Avatar" class="review-avatar">
+                        <div class="review-info">
+                            <h4 class="review-name">Ricardo Gomes</h4>
+                            <p class="review-product">Gin de Pitaya</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">A edição especial valeu cada centavo. Muito bom!</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=20" alt="Avatar" class="review-avatar">
+                        <div class="review-info">
+                            <h4 class="review-name">Camila Oliveira</h4>
+                            <p class="review-product">Gin de Laranja</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Virou a marca oficial das minhas festas. Sensacional.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=33" alt="Avatar" class="review-avatar">
+                        <div class="review-info">
+                            <h4 class="review-name">Daniel Faria</h4>
+                            <p class="review-product">Gin de Manga</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Design impecável da garrafa e o conteúdo melhor ainda.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=32" alt="Avatar" class="review-avatar">
+                        <div class="review-info">
+                            <h4 class="review-name">Sofia J. Lasa</h4>
+                            <p class="review-product">Gin de Limão</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Refrescante na medida certa. Atendimento ótimo também!</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="drag-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l-3 3 3 3M19 9l3 3-3 3M2 12h20"/></svg>
+            Arraste para ver mais avaliações
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l3 3-3 3M5 9l-3 3 3 3M2 12h20"/></svg>
+        </div>
+    </section>
+
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content-img" id="expandedImg">
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-4 align-items-start">
+                <div class="col-lg-4">
+                    <div class="footer-brand">Alquimia Gin's</div>
+                    <p class="footer-text mt-3">
+                        Gins artesanais com identidade sofisticada, sabores marcantes e apresentação premium.
+                    </p>
+                </div>
+
+                <div class="col-lg-4">
+                    <h5 class="footer-text" style="color:#e3c26f;">Contato</h5>
+                    <p class="footer-text mb-2">📧 alquimiagin@gmail.com</p>
+                    <p class="footer-text mb-2">
+                        <a href="https://www.instagram.com/rafaelfilipe651/" class="footer-link" target="_blank">☎️ Suporte via Instagram</a>
+                    </p>
+                </div>
+
+                <div class="col-lg-4">
+                    <h5 class="footer-text" style="color:#e3c26f;">Navegação</h5>
+                    <p class="mb-2"><a href="#origem" class="footer-link">Nossa origem</a></p>
+                    <p class="mb-2"><a href="#gins" class="footer-link">Gins</a></p>
+                    <p class="mb-2"><a href="#especial" class="footer-link">Gin da temporada</a></p>
+                    <p class="mb-2"><a href="#utensilios" class="footer-link">Utensílios</a></p>
+                </div>
+            </div>
+
+            <div class="text-center footer-copy">
+                &copy; Alquimia Gin's 2026 - Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Pega o modal, a imagem de dentro dele e o botão de fechar
+            const modal = document.getElementById("imageModal");
+            const expandedImg = document.getElementById("expandedImg");
+            const closeModalBtn = document.querySelector(".close-modal");
+            
+            // Pega todas as imagens dos utensílios
+            const utensilImages = document.querySelectorAll(".utensil-image");
+
+            // Quando clicar em qualquer imagem de utensílio
+            utensilImages.forEach(img => {
+                img.addEventListener("click", function() {
+                    modal.classList.add("show"); // Mostra o modal
+                    expandedImg.src = this.src;  // Pega a mesma foto clicada e bota no modal
+                });
+            });
+
+            // Quando clicar no "X", esconde o modal
+            closeModalBtn.addEventListener("click", function() {
+                modal.classList.remove("show");
+            });
+
+            // Quando clicar em qualquer lugar da parte escura fora da imagem, fecha o modal
+            modal.addEventListener("click", function(event) {
+                if (event.target === modal) {
+                    modal.classList.remove("show");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
