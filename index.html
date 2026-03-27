@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alquimia Gin's</title>
+    <meta charset="UTF-8"> <!-- Especifica o conjunto de caracteres e emojis. Sem isso podem aparecer caracteres corrompidos/quadrados-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Para responsividade em diferentes tamanhos de tela -->
+    <title>Alquimia Gin's</title> <!-- Título da página -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
     <style>
-        :root {
+        :root { /* Definição de variáveis de cor para facilitar a manutenção e garantir consistência visual. Mudando aqui, você altera em todo o site*/
             --bg-1: #0c0a0f;
             --bg-2: #151018;
             --header-bg: rgba(14, 10, 18, 0.92);
@@ -27,10 +27,10 @@
         }
 
         html {
-            scroll-behavior: smooth;
+            scroll-behavior: smooth; /* Permite uma rolagem suave ao clicar nos links de navegação ao invés de pular diretamente */
         }
 
-        body {
+        body { /* Define o fundo roxo/escuro, cor de texto padrão e garante que o conteúdo ocupe toda a altura da tela*/
             background:
                 radial-gradient(circle at top, rgba(90, 58, 117, 0.20), transparent 28%),
                 linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 50%, var(--bg-1) 100%);
@@ -40,17 +40,19 @@
         }
 
         a {
-            text-decoration: none;
+            text-decoration: none; /* Remove o sublinhado dos links*/
         }
 
         /* HEADER */
         .site-header {
             background: linear-gradient(180deg, rgba(16, 12, 19, 0.96) 0%, rgba(24, 16, 25, 0.92) 100%);
             padding: 14px 0;
-            position: sticky;
+
+            position: sticky; /* o cabeçalho fica fixo enquanto o usuario rola a pagina */
             top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(8px);
+
+            z-index: 1000; /* Garante que o header fique acima de outros elementos */
+            backdrop-filter: blur(8px); /* Vidro fosco atrás do header para destacar o conteúdo sem perder a sensação de profundidade */
         }
 
         .header-bar {
@@ -68,7 +70,7 @@
             flex: 1;
         }
 
-        .brand-logo {
+        .brand-logo { /* Ajustes para o logo: altura fixa, largura automática, e um leve efeito de sombra para destacar */
             height: 52px;
             width: auto;
             object-fit: contain;
@@ -111,7 +113,7 @@
         }
 
         .nav-btn {
-            display: inline-flex;
+            display: inline-flex; /* Permite usar flexbox para alinhar o conteúdo do botão */
             align-items: center;
             justify-content: center;
             background: linear-gradient(180deg, var(--purple-2) 0%, #1d1524 100%);
@@ -126,7 +128,7 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
-        .nav-btn:hover {
+        .nav-btn:hover { /* Efeito de hover para os botões de navegação: leve elevação e mudança de cor para destacar a interatividade */
             color: #fff6de;
             background: linear-gradient(180deg, #3a2944 0%, #24192b 100%);
             transform: translateY(-1px);
@@ -187,7 +189,7 @@
             box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(255, 221, 135, 0.04) inset;
             transition: transform 0.25s ease, box-shadow 0.25s ease;
             height: 100%;
-        }
+        } /* O card tem um fundo escuro com gradiente e borda dourada. Ao passar o mouse, o card sobe e ganha uma sombra maior para destacar */
 
         .gin-card:hover {
             transform: translateY(-5px);
@@ -226,7 +228,7 @@
             box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
         }
 
-        .buy-btn {
+        .buy-btn { /* Botão dourado de compra */
             background: linear-gradient(90deg, #6d4b16 0%, #d4af37 50%, #7b5719 100%);
             color: #22180b;
             border: none;
@@ -299,6 +301,8 @@
             background: linear-gradient(to left, var(--bg-1), transparent);
         }
 
+
+        /* Os itens ficam alinhados e continuam com animação */
         .reviews-track, .utensils-track {
             display: inline-flex;
             gap: 20px;
@@ -308,28 +312,30 @@
         .reviews-track { animation-duration: 40s; }
         .utensils-track { animation-duration: 25s; }
 
-        .reviews-track:hover, .utensils-track:hover {
+        .reviews-track:hover, .utensils-track:hover { /* Quando o usuário passa o mouse sobre os carrosséis, a animação pausa para facilitar a leitura e interação */
             animation-play-state: paused;
         }
 
-        @keyframes scroll-items {
+        @keyframes scroll-items { /* Animação que move os itens da direita para a esquerda, criando um efeito de carrossel contínuo */
             0% { transform: translateX(0); }
             100% { transform: translateX(calc(-100% / 2)); }
-        }
 
-        /* CARDS DE AVALIAÇÕES */
-        .review-card {
-            background: #0f0a14;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 16px;
-            padding: 24px;
-            min-width: 340px;
-            white-space: normal;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
+/* CARDS DE AVALIAÇÕES */
+.review-card {
+    background: #0f0a14;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    padding: 24px;
+    min-width: 340px;
+    width: 340px;  /* Trava a largura para todos ficarem iguais */
+    height: 220px; /* TRAVA A ALTURA: É isso que resolve o seu problema! */
+    white-space: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
 
         .review-header {
             display: flex;
@@ -468,7 +474,7 @@
             max-height: 80vh;
             border-radius: 16px;
             box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2);
-            animation: zoomIn 0.3s ease-out;
+            animation: zoomIn 0.3s ease-out; /* Move tudo para a esquerda */
             clip-path: inset(1.5% round 16px); /* A borda branca também é cortada quando expande */
         }
 
@@ -575,13 +581,13 @@
 <body>
 
     <header class="site-header">
-        <div class="container">
+        <div class="container"> <!-- Centraliza, define a largura e mantém o layout organizado -->
             <div class="header-bar">
                 <div class="brand-wrap">
                     <img src="logo.png" alt="Logo da Alquimia" class="brand-logo">
                     <div class="brand-text">
                         <h1 class="brand-title">ALQUIMIA GIN'S</h1>
-                        <span class="brand-subtitle">A arte da alquimia em cada dose</span>
+                        <span class="brand-subtitle">A arte da alquimia em cada dose</span> <!-- Span é um subtitulo. brand é a "fonte/estilo do texto -->
                     </div>
                 </div>
 
@@ -595,7 +601,7 @@
         </div>
     </header>
 
-    <main class="container py-4">
+    <main class="container py-4"> <!-- Container centralizado com padding vertical para separar do header e footer -->
 
         <section id="origem" class="story-section">
             <div class="text-center mb-4">
@@ -603,7 +609,7 @@
                 <p class="hero-subtitle">A origem da Alquimia Gin</p>
             </div>
 
-            <div class="story-box mx-auto">
+            <div class="story-box mx-auto"> <!-- Caixa de texto centralizada com a história da marca -->
                 <p>
                     A Alquimia Gin nasceu como um sonho de um grupo universitário apaixonado por experiências únicas.
                     Em momentos de descontração, surgiu a inquietação: o gin poderia ser mais do que apenas uma bebida para misturas.
@@ -629,27 +635,39 @@
         </section>
 
         <section id="gins" class="products-section">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5"> <!-- Título da seção de produtos, centralizado e com margem inferior para separar dos cards -->
                 <h2 class="hero-title mb-3">Coleção Alquimia Gin</h2>
                 <p class="hero-subtitle mb-0">
                     Sabores artesanais com identidade premium, elegância e personalidade em cada garrafa.
                 </p>
             </div>
 
-            <div class="row g-4 mb-2">
-                <div class="col-lg-4 col-md-6">
-                    <div class="card gin-card">
-                        <img src="laranja.png" class="card-img-top" alt="Gin de Laranja">
-                        <div class="card-body text-center d-flex flex-column">
+            <div class="row g-4 mb-2"> <!-- Linha de cards de produtos -->
+                <div class="col-lg-4 col-md-6"> <!-- Coluna responsiva: se adaptando em diferentes tamanhos de tela. Utilizado o bootstrap para organizar o layout -->
+                    <div class="card gin-card"> <!-- "card" padrão do bootstrap, que cria uma caixa e uma estilização basica -->
+                        <img src="laranja.png" class="card-img-top" alt="Gin de Laranja"> <!-- Encaixar a imagem perfeitamente sem vazar para as bordas-->
+                        <div class="card-body text-center d-flex flex-column"> <!-- "card-body" é o corpo do card, onde ficam os elementos de texto. E o d-flex organiza se cima para baixo -->
                             <h5 class="card-title">Gin de 🍊 Laranja (750ml)</h5>
                             <div class="price-box">Valor: R$ 119,90</div>
-                            <a href="https://wa.me/31985785679" class="btn buy-btn w-100 mt-auto" target="_blank">🛒 Comprar agora</a>
+                            <a href="https://wa.me/31985785679" class="btn buy-btn w-100 mt-auto" target="_blank">🛒 Comprar agora</a> <!-- Abre a conversa com o proprietário do negócio -->
+                            <!--
+                            "bnt" - Zera o visual do link e deixa só o estilo do botão personalizado.
+                            "buy-btn" - Classe personalizada para o estilo do botão de compra.
+                            "w-100" - Faz o botão ocupar toda a largura disponível.
+                            "mt-auto" - Empurra o botão para a parte inferior do card, garantindo que o espaço entre o preço e o botão seja flexível, mantendo o layout consistente mesmo que os textos tenham tamanhos diferentes.
+                            "target="_blank"" - Faz com que o link abra em uma nova aba, para que o usuário não perca a página do produto ao clicar para comprar.
+                            
+                            
+                            
+                            
+                            
+                            -->
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="card gin-card">
+                <div class="col-lg-4 col-md-6"> <!-- lg-4 EM TELAS GRANDES ( 3 ), md-6 EM TELAS MÉDIAS ( 2 ) e sem configuração fica padrão em 1 -->
+                    <div class="card gin-card"> <!-- estrutura pronta do cartão e área do conteúdo do card -->
                         <img src="limao.png" class="card-img-top" alt="Gin de Limão">
                         <div class="card-body text-center d-flex flex-column">
                             <h5 class="card-title">Gin de 🍋 Limão (750ml)</h5>
@@ -659,7 +677,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6"> 
                     <div class="card gin-card">
                         <img src="manga.png" class="card-img-top" alt="Gin de Manga">
                         <div class="card-body text-center d-flex flex-column">
@@ -696,11 +714,13 @@
             </div>
         </section>
 
-        <section id="especial" class="special-section text-center">
-            <span class="special-label">Edição Especial</span>
+<section id="especial" class="special-section text-center">
+            <span class="special-label">Edição Especial</span> <!-- Rótulo de destaque para a edição especial -->
 
-            <div class="row justify-content-center">
-                <div class="col-lg-5 col-md-8">
+            <!-- Tem nome "special-label" que recebe estilo extra ( borda mais brilhante, sombra mais forte e etc )-->
+
+            <div class="row g-4 justify-content-center"> <!-- Centraliza o único card -->
+                <div class="col-lg-4 col-md-6">
                     <div class="card gin-card special">
                         <img src="pitaya.jpeg" class="card-img-top" alt="Gin de Pitaya">
                         <div class="card-body text-center d-flex flex-column">
@@ -817,7 +837,7 @@
                 
                 <div class="review-card">
                     <div class="review-header">
-                        <img src="https://i.pravatar.cc/150?img=1" alt="Avatar" class="review-avatar">
+                        <img src="https://i.pravatar.cc/150?img=1" alt="Avatar" class="review-avatar"> <!-- Imagem de avatar gerada aleatoriamente para simular os clientes -->
                         <div class="review-info">
                             <h4 class="review-name">Ana Silva</h4>
                             <p class="review-product">Gin de Pitaya</p>
@@ -1064,8 +1084,8 @@
         </div>
     </section>
 
-    <div id="imageModal" class="modal">
-        <span class="close-modal">&times;</span>
+    <div id="imageModal" class="modal"> <!-- Modal para expandir a imagem -->
+        <span class="close-modal">&times;</span> <!-- Botão de fechar modal, o X personalizado -->
         <img class="modal-content-img" id="expandedImg">
     </div>
 
@@ -1102,15 +1122,16 @@
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+
+        document.addEventListener('DOMContentLoaded', function() { // Espera o html carregar totalmente para evitar quebras no meio do código
             // Pega o modal, a imagem de dentro dele e o botão de fechar
-            const modal = document.getElementById("imageModal");
+            const modal = document.getElementById("imageModal"); // Busca 1 elemento pelo id, que é o modal
             const expandedImg = document.getElementById("expandedImg");
-            const closeModalBtn = document.querySelector(".close-modal");
+            const closeModalBtn = document.querySelector(".close-modal"); // Busca o primeiro elemento que tem a classe "close-modal", que é o X de fechar o modal ( css )
             
             // Pega todas as imagens dos utensílios
-            const utensilImages = document.querySelectorAll(".utensil-image");
+            const utensilImages = document.querySelectorAll(".utensil-image"); // Pega todo o conjunto e retorna uma lista de elementos, que são as imagens dos utensílios
 
             // Quando clicar em qualquer imagem de utensílio
             utensilImages.forEach(img => {
@@ -1121,13 +1142,13 @@
             });
 
             // Quando clicar no "X", esconde o modal
-            closeModalBtn.addEventListener("click", function() {
+            closeModalBtn.addEventListener("click", function() { // Ao clicar no "X" adiciona a classe "show" no modal, fechando ele
                 modal.classList.remove("show");
             });
 
             // Quando clicar em qualquer lugar da parte escura fora da imagem, fecha o modal
             modal.addEventListener("click", function(event) {
-                if (event.target === modal) {
+                if (event.target === modal) { // Verifica se o clique foi no modal (parte escura) e não na imagem (que é o "filho" do modal)
                     modal.classList.remove("show");
                 }
             });
